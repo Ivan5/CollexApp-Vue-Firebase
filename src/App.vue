@@ -2,7 +2,8 @@
   <div id="app">
     <h1>Items in Firebase</h1>
     <div v-for="item in items" :key="item.id">
-      <h3>{{ item.title }}</h3>
+      <a :href="item.pageurl">
+      <h3>{{ item.title }}</h3></a>
       <h4>{{ item.author }}</h4>
     </div>
   </div>
