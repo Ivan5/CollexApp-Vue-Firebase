@@ -10,6 +10,9 @@
 </template>
 
 <script>
+//Grab the number from the end of the query string.
+var catid = parseInt(window.location.href.split("=").pop());
+
 //import HelloWorld from './components/HelloWorld'
 import Firebase from 'firebase'
 let config = {
@@ -26,7 +29,9 @@ let itemsRef = db.ref('items');
 export default {
   name: 'App',
   firebase:{
-    items: itemsRef
+    //items: itemsRef
+    items:itemsRef.orderByChild('categoryid').equalTo(catid)
+    
   },
   methods:{
     imgpath(img){
@@ -41,6 +46,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 120px 0 0 0;
 }
 
 #app div{
