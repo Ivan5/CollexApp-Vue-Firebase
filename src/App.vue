@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <h1>Items in Firebase</h1>
     <div v-for="item in items" :key="item.id">
       <img :src="imgpath(item)" alt="">
       <a :href="item.pageurl">
-      <h3>{{ item.title }}</h3></a>
-      <h4>{{ item.author }}</h4>
+      <h3>{{ item.title }}</h3>
+      <h4>{{ item.author }}</h4></a>
     </div>
   </div>
 </template>
@@ -37,13 +36,56 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#app div{
+  width: 300px;
+  height: 185px;
+  border: solid 1px gray;
+  border-radius: 2px;
+  margin: 0.5em;
+  box-shadow: 2px 2px 2px silver;
+  position: relative;
+}
+
+#app div img{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+#app div h3{
+  position: absolute;
+  z-index: 15;
+  margin:0;
+  top: 0;
+  left: 8px;
+  font-size: 18pt;
+}
+#app div h4{
+  position: absolute;
+  z-index: 15;
+  margin:0;
+  top: 24pt;
+  left: 8px;
+  font-size: 14pt;
+}
+
+#app div a{
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: linear-gradient(black,transparent);
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-shadow: 1px 1px black;
 }
 </style>
